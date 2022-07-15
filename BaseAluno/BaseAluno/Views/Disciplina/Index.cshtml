@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BaseAluno.Models.Disciplinas>
+
+@{
+    ViewBag.Title = "Listas";
+}
+
+<h2>Listas</h2>
+
+<p>
+    @Html.ActionLink("Crear novo", "Criar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DISDESCRIACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISCH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cursos.CURSODESCRICAO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISDESCRIACAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISCH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cursos.CURSODESCRICAO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.DISID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.DISID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.DISID })
+        </td>
+    </tr>
+}
+
+</table>

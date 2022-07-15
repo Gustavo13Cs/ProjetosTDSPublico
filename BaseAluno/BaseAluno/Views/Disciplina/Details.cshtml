@@ -1,0 +1,42 @@
+﻿@model BaseAluno.Models.Disciplinas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Disciplinas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DISDESCRIACAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISDESCRIACAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISCH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISCH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cursos.CURSODESCRICAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cursos.CURSODESCRICAO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DISID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

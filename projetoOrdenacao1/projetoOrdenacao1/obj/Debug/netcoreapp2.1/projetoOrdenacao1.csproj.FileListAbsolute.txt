@@ -1,0 +1,13 @@
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\bin\Debug\netcoreapp2.1\projetoOrdenacao1.deps.json
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\bin\Debug\netcoreapp2.1\projetoOrdenacao1.runtimeconfig.json
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\bin\Debug\netcoreapp2.1\projetoOrdenacao1.runtimeconfig.dev.json
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\bin\Debug\netcoreapp2.1\projetoOrdenacao1.dll
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\bin\Debug\netcoreapp2.1\projetoOrdenacao1.pdb
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.csproj.CoreCompileInputs.cache
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.AssemblyInfoInputs.cache
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.AssemblyInfo.cs
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.dll
+C:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.pdb
+c:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.csproj.AssemblyReference.cache
+c:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\android\Documents\projetoOrdenacao1\projetoOrdenacao1\obj\Debug\netcoreapp2.1\projetoOrdenacao1.genruntimeconfig.cache

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EscolaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cursos">
+    <Key>
+      <PropertyRef Name="CURSOID" />
+    </Key>
+    <Property Name="CURSOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CURSODESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CURSOCODHABILIDADE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CURSOMODALIDADE" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Disciplinas">
+    <Key>
+      <PropertyRef Name="DISID" />
+    </Key>
+    <Property Name="DISID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DISDESCRIACAO" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DISCH" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CURSOID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Disciplin__CURSO__398D8EEE">
+    <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
+    <End Role="Disciplinas" Type="Self.Disciplinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cursos">
+        <PropertyRef Name="CURSOID" />
+      </Principal>
+      <Dependent Role="Disciplinas">
+        <PropertyRef Name="CURSOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EscolaModelStoreContainer">
+    <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disciplinas" EntityType="Self.Disciplinas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Disciplin__CURSO__398D8EEE" Association="Self.FK__Disciplin__CURSO__398D8EEE">
+      <End Role="Cursos" EntitySet="Cursos" />
+      <End Role="Disciplinas" EntitySet="Disciplinas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
