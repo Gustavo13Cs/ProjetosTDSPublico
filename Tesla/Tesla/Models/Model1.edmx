@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TeslaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="MODID" />
+          </Key>
+          <Property Name="MODID" Type="int" Nullable="false" />
+          <Property Name="MODDESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MODANO" Type="int" Nullable="false" />
+          <Property Name="VEID" Type="int" />
+        </EntityType>
+        <EntityType Name="Veiculo">
+          <Key>
+            <PropertyRef Name="VEID" />
+          </Key>
+          <Property Name="VEID" Type="int" Nullable="false" />
+          <Property Name="VEIDESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VEIVALOR" Type="int" Nullable="false" />
+          <Property Name="VEICODMODELO" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Modelo__VEID__36B12243">
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="0..1" />
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Veiculo">
+              <PropertyRef Name="VEID" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="VEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TeslaModelStoreContainer">
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Veiculo" EntityType="Self.Veiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Modelo__VEID__36B12243" Association="Self.FK__Modelo__VEID__36B12243">
+            <End Role="Veiculo" EntitySet="Veiculo" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TeslaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="MODID" />
+          </Key>
+          <Property Name="MODID" Type="Int32" Nullable="false" />
+          <Property Name="MODDESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODANO" Type="Int32" Nullable="false" />
+          <Property Name="VEID" Type="Int32" />
+          <NavigationProperty Name="Veiculo" Relationship="Self.FK__Modelo__VEID__36B12243" FromRole="Modelo" ToRole="Veiculo" />
+        </EntityType>
+        <EntityType Name="Veiculo">
+          <Key>
+            <PropertyRef Name="VEID" />
+          </Key>
+          <Property Name="VEID" Type="Int32" Nullable="false" />
+          <Property Name="VEIDESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VEIVALOR" Type="Int32" Nullable="false" />
+          <Property Name="VEICODMODELO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modelo" Relationship="Self.FK__Modelo__VEID__36B12243" FromRole="Veiculo" ToRole="Modelo" />
+        </EntityType>
+        <Association Name="FK__Modelo__VEID__36B12243">
+          <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="0..1" />
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Veiculo">
+              <PropertyRef Name="VEID" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="VEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TeslaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" />
+          <EntitySet Name="Veiculo" EntityType="Self.Veiculo" />
+          <AssociationSet Name="FK__Modelo__VEID__36B12243" Association="Self.FK__Modelo__VEID__36B12243">
+            <End Role="Veiculo" EntitySet="Veiculo" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TeslaModelStoreContainer" CdmEntityContainer="TeslaEntities">
+          <EntitySetMapping Name="Modelo">
+            <EntityTypeMapping TypeName="TeslaModel.Modelo">
+              <MappingFragment StoreEntitySet="Modelo">
+                <ScalarProperty Name="MODID" ColumnName="MODID" />
+                <ScalarProperty Name="MODDESCRICAO" ColumnName="MODDESCRICAO" />
+                <ScalarProperty Name="MODANO" ColumnName="MODANO" />
+                <ScalarProperty Name="VEID" ColumnName="VEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Veiculo">
+            <EntityTypeMapping TypeName="TeslaModel.Veiculo">
+              <MappingFragment StoreEntitySet="Veiculo">
+                <ScalarProperty Name="VEID" ColumnName="VEID" />
+                <ScalarProperty Name="VEIDESCRICAO" ColumnName="VEIDESCRICAO" />
+                <ScalarProperty Name="VEIVALOR" ColumnName="VEIVALOR" />
+                <ScalarProperty Name="VEICODMODELO" ColumnName="VEICODMODELO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

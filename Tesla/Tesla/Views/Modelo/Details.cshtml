@@ -1,0 +1,42 @@
+﻿@model Tesla.Models.Modelo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Modelo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MODDESCRICAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODDESCRICAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODANO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODANO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Veiculo.VEIDESCRICAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Veiculo.VEIDESCRICAO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MODID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

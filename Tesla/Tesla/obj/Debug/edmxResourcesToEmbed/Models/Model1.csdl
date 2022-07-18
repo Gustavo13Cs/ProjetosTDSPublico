@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TeslaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Modelo">
+    <Key>
+      <PropertyRef Name="MODID" />
+    </Key>
+    <Property Name="MODID" Type="Int32" Nullable="false" />
+    <Property Name="MODDESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODANO" Type="Int32" Nullable="false" />
+    <Property Name="VEID" Type="Int32" />
+    <NavigationProperty Name="Veiculo" Relationship="Self.FK__Modelo__VEID__36B12243" FromRole="Modelo" ToRole="Veiculo" />
+  </EntityType>
+  <EntityType Name="Veiculo">
+    <Key>
+      <PropertyRef Name="VEID" />
+    </Key>
+    <Property Name="VEID" Type="Int32" Nullable="false" />
+    <Property Name="VEIDESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VEIVALOR" Type="Int32" Nullable="false" />
+    <Property Name="VEICODMODELO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Modelo" Relationship="Self.FK__Modelo__VEID__36B12243" FromRole="Veiculo" ToRole="Modelo" />
+  </EntityType>
+  <Association Name="FK__Modelo__VEID__36B12243">
+    <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="0..1" />
+    <End Role="Modelo" Type="Self.Modelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veiculo">
+        <PropertyRef Name="VEID" />
+      </Principal>
+      <Dependent Role="Modelo">
+        <PropertyRef Name="VEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TeslaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Modelo" EntityType="Self.Modelo" />
+    <EntitySet Name="Veiculo" EntityType="Self.Veiculo" />
+    <AssociationSet Name="FK__Modelo__VEID__36B12243" Association="Self.FK__Modelo__VEID__36B12243">
+      <End Role="Veiculo" EntitySet="Veiculo" />
+      <End Role="Modelo" EntitySet="Modelo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

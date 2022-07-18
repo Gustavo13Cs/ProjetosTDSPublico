@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TeslaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Modelo">
+    <Key>
+      <PropertyRef Name="MODID" />
+    </Key>
+    <Property Name="MODID" Type="int" Nullable="false" />
+    <Property Name="MODDESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MODANO" Type="int" Nullable="false" />
+    <Property Name="VEID" Type="int" />
+  </EntityType>
+  <EntityType Name="Veiculo">
+    <Key>
+      <PropertyRef Name="VEID" />
+    </Key>
+    <Property Name="VEID" Type="int" Nullable="false" />
+    <Property Name="VEIDESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VEIVALOR" Type="int" Nullable="false" />
+    <Property Name="VEICODMODELO" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Modelo__VEID__36B12243">
+    <End Role="Veiculo" Type="Self.Veiculo" Multiplicity="0..1" />
+    <End Role="Modelo" Type="Self.Modelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veiculo">
+        <PropertyRef Name="VEID" />
+      </Principal>
+      <Dependent Role="Modelo">
+        <PropertyRef Name="VEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TeslaModelStoreContainer">
+    <EntitySet Name="Modelo" EntityType="Self.Modelo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Veiculo" EntityType="Self.Veiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Modelo__VEID__36B12243" Association="Self.FK__Modelo__VEID__36B12243">
+      <End Role="Veiculo" EntitySet="Veiculo" />
+      <End Role="Modelo" EntitySet="Modelo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
