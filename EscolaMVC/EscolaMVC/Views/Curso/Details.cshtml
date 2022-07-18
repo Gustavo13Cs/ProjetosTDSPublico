@@ -1,0 +1,42 @@
+﻿@model EscolaMVC.Models.Cursos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Cursos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CURSODESCRICAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CURSODESCRICAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CURSOCODHABILIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CURSOCODHABILIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CURSOMODALIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CURSOMODALIDADE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.CURSOID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

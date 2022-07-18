@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EscolaMVC.Models.Cursos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista De Cursos</h2>
+
+<p>
+    @Html.ActionLink("Criar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CURSODESCRICAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CURSOCODHABILIDADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CURSOMODALIDADE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CURSODESCRICAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CURSOCODHABILIDADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CURSOMODALIDADE)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.CURSOID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.CURSOID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.CURSOID })
+        </td>
+    </tr>
+}
+
+</table>
